@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tommy</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' style='animation: blink 1s infinite;'>🐱</text><style>@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0.3}}</style></svg>" type="image/svg+xml">
     <style>
         * {
             margin: 0;
@@ -13,14 +14,14 @@
         }
 
         ::selection {
-            background: #fff;
+            background: #ffff00;
             color: #000;
         }
 
         body {
             font-family: 'Courier New', monospace;
             background: #000;
-            color: #fff;
+            color: #ffff00;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -43,35 +44,22 @@
         .snowflake {
             position: absolute;
             top: -10px;
-            color: #fff;
-            font-size: 10px;
+            color: #ffff00;
+            font-size: 12px;
             animation: fall linear infinite;
+            text-shadow: 0 0 5px #ffff00;
         }
 
         @keyframes fall {
             from {
-                transform: translateY(-100vh) translateX(0);
+                transform: translateY(-100vh) translateX(0) rotate(0deg);
             }
             to {
-                transform: translateY(100vh) translateX(50px);
+                transform: translateY(100vh) translateX(80px) rotate(360deg);
             }
         }
 
-        /* Noise texture overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.03;
-            z-index: 1;
-            pointer-events: none;
-            background-image: 
-                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,.1) 2px, rgba(255,255,255,.1) 4px),
-                repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(255,255,255,.05) 2px, rgba(255,255,255,.05) 4px);
-        }
+
 
         /* Glitch effect */
         @keyframes glitch {
@@ -102,6 +90,8 @@
             margin-bottom: 20px;
             position: relative;
             display: inline-block;
+            color: #ffff00;
+            text-shadow: 0 0 10px #ffff00;
         }
 
         .main-title::before,
@@ -114,15 +104,10 @@
             height: 100%;
         }
 
-        .main-title::before {
-            color: #ff0000;
-            animation: glitch 2s infinite;
-            clip: rect(44px, 450px, 56px, 0);
-            opacity: 0.8;
-        }
+
 
         .main-title::after {
-            color: #00ffff;
+            color: #ffaa00;
             animation: glitch 2s infinite reverse;
             clip: rect(20px, 450px, 80px, 0);
             opacity: 0.8;
@@ -133,8 +118,9 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             margin-bottom: 40px;
-            opacity: 0.7;
+            opacity: 0.8;
             font-family: 'Courier New', monospace;
+            color: #ffff00;
         }
 
         .links {
@@ -146,7 +132,7 @@
         }
 
         .link {
-            color: #fff;
+            color: #ffff00;
             text-decoration: none;
             font-size: 0.8rem;
             letter-spacing: 2px;
@@ -154,6 +140,7 @@
             position: relative;
             transition: all 0.2s;
             padding: 5px 0;
+            text-shadow: 0 0 5px #ffff00;
         }
 
         .link::before {
@@ -178,9 +165,10 @@
         }
 
         .link:hover {
-            color: #ff0000;
+            color: #ffaa00;
             transform: scale(1.1);
             animation: glitch 0.3s infinite;
+            text-shadow: 0 0 15px #ffaa00;
         }
 
         /* Terminal cursor blink */
@@ -188,9 +176,10 @@
             display: inline-block;
             width: 10px;
             height: 20px;
-            background: #fff;
+            background: #ffff00;
             margin-left: 5px;
             animation: blink 1s infinite;
+            box-shadow: 0 0 5px #ffff00;
         }
 
         @keyframes blink {
@@ -203,19 +192,16 @@
             position: fixed;
             font-size: 0.7rem;
             font-family: 'Courier New', monospace;
-            opacity: 0.3;
+            opacity: 0.4;
             letter-spacing: 1px;
             z-index: 10;
+            color: #ffff00;
+            text-shadow: 0 0 3px #ffff00;
         }
 
         .timestamp.top-left {
             top: 20px;
             left: 20px;
-        }
-
-        .timestamp.bottom-right {
-            bottom: 20px;
-            right: 20px;
         }
 
         /* Scanlines */
@@ -232,15 +218,15 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
-            opacity: 0.05;
+            opacity: 0.08;
             background: repeating-linear-gradient(
                 0deg,
                 transparent,
                 transparent 2px,
-                rgba(255, 255, 255, 0.03) 2px,
-                rgba(255, 255, 255, 0.03) 4px
+                rgba(255, 255, 0, 0.05) 2px,
+                rgba(255, 255, 0, 0.05) 4px
             );
-            animation: scanlines 8s linear infinite;
+            animation: scanlines 6s linear infinite;
         }
 
         /* Mobile responsive */
@@ -268,8 +254,6 @@
     <div class="timestamp top-left">
         <span id="time"></span>
     </div>
-    
-
 
     <div class="container">
         <h1 class="main-title">tommy</h1>
@@ -278,25 +262,25 @@
         <div class="links">
             <a href="https://www.instagram.com/tommy_tavernite" target="_blank" class="link">instagram</a>
             <a href="https://www.linkedin.com/in/thomas-tavernite-1aa1672b3/" target="_blank" class="link">linkedin</a>
-            <a href="mailto:tommy_1600@outlook.com" class="link">email</a>
+            <a href="mailto:th0mas@myyahoo.com" class="link">email</a>
         </div>
     </div>
 
     <script>
-        // Create snow effect
+        // Create faster snow effect
         function createSnow() {
             const snowContainer = document.getElementById('snow');
-            const snowflakeSymbols = ['•', '·', '∗', '⋅'];
+            const snowflakeSymbols = ['●', '◆', '▲', '♦', '★', '✦', '◈'];
             
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 80; i++) {
                 const snowflake = document.createElement('div');
                 snowflake.className = 'snowflake';
                 snowflake.innerHTML = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
                 snowflake.style.left = Math.random() * 100 + '%';
-                snowflake.style.animationDuration = Math.random() * 3 + 5 + 's';
-                snowflake.style.opacity = Math.random() * 0.6 + 0.2;
-                snowflake.style.fontSize = Math.random() * 8 + 8 + 'px';
-                snowflake.style.animationDelay = Math.random() * 5 + 's';
+                snowflake.style.animationDuration = Math.random() * 2 + 1.5 + 's'; // Much faster
+                snowflake.style.opacity = Math.random() * 0.8 + 0.3;
+                snowflake.style.fontSize = Math.random() * 6 + 10 + 'px';
+                snowflake.style.animationDelay = Math.random() * 3 + 's';
                 snowContainer.appendChild(snowflake);
             }
         }
@@ -334,8 +318,8 @@
         }, 100);
 
         // Console easter egg
-        console.log('%c× tommy online ×', 'color: #ff0000; font-size: 20px; font-weight: bold; text-shadow: 2px 2px 0 #000;');
-        console.log('%cACCESS_GRANTED', 'color: #00ff00; font-family: monospace;');
+        console.log('%c× tommy online ×', 'color: #ffff00; font-size: 20px; font-weight: bold; text-shadow: 2px 2px 0 #000;');
+        console.log('%cACCESS_GRANTED', 'color: #ffaa00; font-family: monospace;');
     </script>
 </body>
-</html> 
+</html>
